@@ -21,12 +21,17 @@ repositories {
 
 ext {
 	set('springCloudVersion', "Hoxton.RC1")
+	springfoxVersion = '2.9.2'
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-amqp'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.cloud:spring-cloud-stream-binder-rabbit'
+	compile 'org.springframework.cloud:spring-cloud-stream-binder-rabbit'
+	implementation 'org.springframework.cloud:spring-cloud-starter-stream-rabbit'
+
+	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: springfoxVersion
+	compile group: 'io.springfox', name: 'springfox-swagger2', version: springfoxVersion
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
